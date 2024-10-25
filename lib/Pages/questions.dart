@@ -120,7 +120,7 @@ class _QuestionsState extends State<QuestionsHome> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Question ${_currentIndex + 1}/${_questions.length}",
+              "Question ${_currentIndex + 1}",
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
