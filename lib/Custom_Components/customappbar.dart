@@ -15,11 +15,20 @@ class Customappbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
-      title: const Center(
-        child: Row(
-          children: [Icon(Icons.quiz), Text("QuizCraze")],
+      title: Center(
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+          child: const Row(
+            children: [Image(image: AssetImage('assets/quiz_icon.jpg'), width: 50, height: 50,),
+             SizedBox(width: 10,),
+             Text("QuizCraze", style: TextStyle(
+               color: Colors.white,
+               fontWeight: FontWeight.bold
+             ),)],
+          ),
         ),
       ),
+      backgroundColor: Colors.indigo,
     );
   }
 }

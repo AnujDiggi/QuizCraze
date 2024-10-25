@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/Custom_Components/customappbar.dart';
+import 'package:quiz_app/Pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,39 +32,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const Customappbar(),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+             const ClipRRect(
+                 borderRadius: BorderRadius.all(Radius.circular(50)),
+                  child: Image(
+                image: AssetImage('assets/quiz_wel.jpg'),
+                width: 300,
+                height: 300,
+                fit: BoxFit.cover,
+              )),
+             const SizedBox(height: 20,),
+              ElevatedButton(onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepOrange
+              ),
+               child: const Text("Start", style: TextStyle(
+                 fontSize: 20,
+                 fontWeight: FontWeight.bold,
+                 color: Colors.white
+              ),))
+            ],
+          ),
         ),
+        
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      backgroundColor: Colors.blueGrey,
     );
   }
 }
-
-
